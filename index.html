@@ -8,28 +8,39 @@
     <!-- Import Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Bai Jamjuree', sans-serif; /* Apply Bai Jamjuree font */
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        p {
-            text-align: center;
-            margin: 20px;
-            font-size: 1.2rem; /* Adjust paragraph font size */
-        }
-
-  /* Reset and base styles */
+        /* Reset and base styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            font-family: 'Bai Jamjuree', sans-serif;
+        }
+
+        /* Header Overlay */
+        .header-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .header-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
         }
 
         /* Container for the first Spline scene */
@@ -43,7 +54,7 @@
 
         /* Spacer to create scroll effect */
         .scroll-spacer {
-            height: 500vh; /* Adjust this to control how long the first scene stays */
+            height: 500vh;
             position: relative;
             z-index: 1;
         }
@@ -61,9 +72,19 @@
         .moons-section {
             height: 100vh;
             display: flex;
-            justify-content: left;
-            align-items: left;
             background-color: #000;
+        }
+
+        .moons-content {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .moons-viewer {
+            width: 50%;
         }
 
         /* Ensure Spline viewer fills its container */
@@ -71,10 +92,30 @@
             width: 100%;
             height: 100%;
         }
-}
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
+    <!-- Header Overlay -->
+    <div class="header-overlay">
+        <div class="header-logo">COSMIC JOURNEY</div>
+        <nav class="header-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+
     <!-- First Spline Scene Container -->
     <div class="scroll-spacer">
         <div class="spline-container">
@@ -89,10 +130,14 @@
     
     <!-- Moons Section -->
     <div class="moons-section">
-        <h1>AURION</h1>
-        <p>moon 1 </p>
-        <spline-viewer url="https://prod.spline.design/iKxlEkX2f8CvvQZY/scene.splinecode"></spline-viewer>
+        <div class="moons-content">
+            <h1>AURION</h1>
+            <p>Discover Aurion, a mesmerizing celestial body that captivates astronomers and space enthusiasts alike. With its unique geological formations and mysterious surface, Aurion represents the frontier of our cosmic exploration.</p>
+            <p>Nestled in the far reaches of its solar system, this moon challenges our understanding of planetary formation and offers a glimpse into the complex dynamics of celestial mechanics.</p>
+        </div>
+        <div class="moons-viewer">
+            <spline-viewer url="https://prod.spline.design/iKxlEkX2f8CvvQZY/scene.splinecode"></spline-viewer>
+        </div>
     </div>
-
 </body>
 </html>
