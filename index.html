@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spline Viewer</title>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.47/build/spline-viewer.js"></script>
+    <title>Cosmic Journey</title>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
     <!-- Import Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -15,6 +15,7 @@
             background-color: black;
             color: white;
             font-family: 'Bai Jamjuree', sans-serif;
+            scroll-behavior: smooth;
         }
 
         /* Header Overlay */
@@ -43,8 +44,8 @@
             font-size: 1rem;
         }
 
-        /* Container for the first Spline scene */
-        .spline-container {
+        /* Sticky Scene Container */
+        .sticky-scene-container {
             position: sticky;
             top: 0;
             height: 100vh;
@@ -68,14 +69,14 @@
             background-color: #000;
         }
 
-        /* Moons section */
-        .moons-section {
+        /* Section layout */
+        .content-section {
             height: 100vh;
             display: flex;
             background-color: #000;
         }
 
-        .moons-content {
+        .section-content {
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -83,7 +84,7 @@
             padding: 0 5%;
         }
 
-        .moons-viewer {
+        .section-viewer {
             width: 50%;
         }
 
@@ -118,7 +119,7 @@
 
     <!-- First Spline Scene Container -->
     <div class="scroll-spacer">
-        <div class="spline-container">
+        <div class="sticky-scene-container">
             <spline-viewer url="https://prod.spline.design/d029r9yfPcYlAqs5/scene.splinecode"></spline-viewer>
         </div>
     </div>
@@ -129,15 +130,38 @@
     </div>
     
     <!-- Moons Section -->
-    <div class="moons-section">
-        <div class="moons-content">
+    <div class="content-section">
+        <div class="section-content">
             <h1>AURION</h1>
             <p>Discover Aurion, a mesmerizing celestial body that captivates astronomers and space enthusiasts alike. With its unique geological formations and mysterious surface, Aurion represents the frontier of our cosmic exploration.</p>
             <p>Nestled in the far reaches of its solar system, this moon challenges our understanding of planetary formation and offers a glimpse into the complex dynamics of celestial mechanics.</p>
         </div>
-        <div class="moons-viewer">
+        <div class="section-viewer">
             <spline-viewer url="https://prod.spline.design/iKxlEkX2f8CvvQZY/scene.splinecode"></spline-viewer>
         </div>
     </div>
+
+    <!-- Sun Section -->
+    <div class="scroll-spacer">
+        <div class="sticky-scene-container">
+            <div class="content-section">
+                <div class="section-content">
+                    <h1>SOLARA</h1>
+                    <p>Witness the magnificent Solara, a celestial marvel that embodies the raw power and beauty of stellar formation. Its intricate surface reveals the complex processes that drive the life cycle of stars.</p>
+                    <p>From its radiant core to its dynamic photosphere, Solara represents the ultimate testament to the cosmic forces that shape our universe.</p>
+                </div>
+                <div class="section-viewer">
+                    <spline-viewer url="https://prod.spline.design/uPRc4iuXW8rYFgMU/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll to top on page reload
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
