@@ -27,7 +27,11 @@
 
         spline-viewer {
             display: block;
-            margin: 20px auto;
+            width: 90%; /* Adjusts to 90% of the viewport width */
+            height: 70vh; /* Adjusts to 70% of the viewport height */
+            max-width: 100%; /* Prevents overflow beyond the browser width */
+            max-height: 100vh; /* Prevents overflow beyond the viewport height */
+            margin: 0 auto; /* Centers the viewer horizontally */
         }
     </style>
 </head>
