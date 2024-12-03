@@ -25,37 +25,73 @@
             font-size: 1.2rem; /* Adjust paragraph font size */
         }
 
-        spline-viewer {
-            display: block;
-            width: 90%; /* Adjusts to 90% of the viewport width */
-            height: 70vh; /* Adjusts to 70% of the viewport height */
-            max-width: 100%; /* Prevents overflow beyond the browser width */
-            max-height: 100vh; /* Prevents overflow beyond the viewport height */
-            margin: 0 auto; /* Centers the viewer horizontally */
+  /* Reset and base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
-        div.sticky {
+        /* Container for the first Spline scene */
+        .spline-container {
             position: sticky;
             top: 0;
-            bottom: 10rem;
+            height: 100vh;
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Spacer to create scroll effect */
+        .scroll-spacer {
+            height: 200vh; /* Adjust this to control how long the first scene stays */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Divider section */
+        .divider {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        /* Moons section */
+        .moons-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+        }
+
+        /* Ensure Spline viewer fills its container */
+        spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
 }
     </style>
 </head>
 <body>
-    <h1>My Spline 3D Project</h1>
+    <!-- First Spline Scene Container -->
+    <div class="scroll-spacer">
+        <div class="spline-container">
+            <spline-viewer url="https://prod.spline.design/d029r9yfPcYlAqs5/scene.splinecode"></spline-viewer>
+        </div>
     </div>
-    <div class="sticky">
-        <spline-viewer 
-        url="https://prod.spline.design/d029r9yfPcYlAqs5/scene.splinecode">
-    </spline-viewer>
+
+    <!-- Divider Section -->
+    <div class="divider">
+        <h2 style="color: white; text-align: center;">Exploring the Cosmos</h2>
     </div>
-<p>&nbsp</p>
-<p>&nbsp</p>
+
+    <!-- Moons Section -->
+    <div class="moons-section">
+        <spline-viewer url="https://prod.spline.design/iKxlEkX2f8CvvQZY/scene.splinecode"></spline-viewer>
+    </div>
     <h1>AURION</h1>
-     <spline-viewer 
-        url="https://prod.spline.design/iKxlEkX2f8CvvQZY/scene.splinecode"
-        style="width: 100%; height: 500px;">
-    </spline-viewer>
     <p>moon 1 </p>
 </body>
 </html>
