@@ -16,6 +16,13 @@
             color: white;
             font-family: 'Bai Jamjuree', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Page container to prevent overflow */
+        .page-container {
+            max-width: 100vw;
+            overflow: hidden;
         }
 
         /* Header Overlay */
@@ -30,6 +37,7 @@
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
         }
 
         .header-logo {
@@ -44,42 +52,32 @@
             font-size: 1rem;
         }
 
-        /* Sticky Scene Container */
+        /* Sections */
         .sticky-scene-container {
-            position: sticky;
-            top: 0;
+            position: relative;
             height: 100vh;
-            width: 70%;
-            z-index: 10;
+            width: 100%;
+            overflow: hidden;
         }
 
-        /* Spacer to create scroll effect */
-        .scroll-spacer {
-            height: 300vh;
+        .scroll-spacer, .scroll-spacer2 {
+            height: 100vh;
             position: relative;
-            z-index: 1;
-        }
-
-        .scroll-spacer2 {
-            height: 200vh;
-            position: relative;
-            z-index: 1;
         }
         
-        /* Divider section */
         .divider {
-            height: 20vh;
+            height: 10vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #000;
         }
 
-        /* Section layout */
         .content-section {
             height: 100vh;
             display: flex;
             background-color: #000;
+            align-items: center;
         }
 
         .section-content {
@@ -92,14 +90,31 @@
 
         .section-viewer {
             width: 50%;
-            display: flex; /* Ensures child alignment */
-            align-items: center; /* Centers the spline viewer vertically */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
 
         /* Ensure Spline viewer fills its container */
         spline-viewer {
             width: 100%;
             height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        /* Page sections */
+        .page {
+            display: none;
+            min-height: 100vh;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* Typography */
@@ -119,50 +134,64 @@
     <div class="header-overlay">
         <div class="header-logo">COSMIC JOURNEY</div>
         <nav class="header-nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" onclick="showPage('home')">Home</a>
+            <a href="#about" onclick="showPage('about')">About</a>
         </nav>
     </div>
 
-    <!-- First Spline Scene Container -->
-    <div class="scroll-spacer">
-        <div class="sticky-scene-container">
-            <spline-viewer url="https://prod.spline.design/d029r9yfPcYlAqs5/scene.splinecode"></spline-viewer>
-        </div>
-    </div>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="page-container">
+            <!-- First Spline Scene Container -->
+            <div class="scroll-spacer">
+                <div class="sticky-scene-container">
+                    <spline-viewer url="https://prod.spline.design/d029r9yfPcYlAqs5/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
 
-    <!-- Divider Section -->
-    <div class="divider">
-        <h2 style="color: white; text-align: center;">Exploring the Cosmos</h2>
-    </div>
-    
-    <!-- Moons Section -->
-    <div class="content-section">
-        <div class="section-content">
-            <h1>AURION & ZEPHYRA</h1>
-            <p>Discover Aurion, a mesmerizing celestial body that captivates astronomers and space enthusiasts alike. With its unique geological formations and mysterious surface, Aurion represents the frontier of our cosmic exploration.</p>
-            <p>Nestled in the far reaches of its solar system, this moon challenges our understanding of planetary formation and offers a glimpse into the complex dynamics of celestial mechanics.</p>
-        </div>
-        <div class="section-viewer">
-            <spline-viewer url="https://prod.spline.design/CcrsqZjnV8Ea7omE/scene.splinecode"></spline-viewer>
-        </div>
-    </div>
-
-    <!-- Sun Section -->
-    <div class="scroll-spacer2">
-        <div class="sticky-scene-container">
+            <!-- Divider Section -->
+            <div class="divider">
+                <h2 style="color: white; text-align: center;">Exploring the Cosmos</h2>
+            </div>
+            
+            <!-- Moons Section -->
             <div class="content-section">
                 <div class="section-content">
-                    <h1>SOLARA</h1>
-                    <p>Witness the magnificent Solara, a celestial marvel that embodies the raw power and beauty of stellar formation. Its intricate surface reveals the complex processes that drive the life cycle of stars.</p>
-                    <p>From its radiant core to its dynamic photosphere, Solara represents the ultimate testament to the cosmic forces that shape our universe.</p>
+                    <h1>AURION & ZEPHYRA</h1>
+                    <p>Discover Aurion, a mesmerizing celestial body that captivates astronomers and space enthusiasts alike. With its unique geological formations and mysterious surface, Aurion represents the frontier of our cosmic exploration.</p>
+                    <p>Nestled in the far reaches of its solar system, this moon challenges our understanding of planetary formation and offers a glimpse into the complex dynamics of celestial mechanics.</p>
                 </div>
                 <div class="section-viewer">
-                    <spline-viewer url="https://prod.spline.design/2Lvb-EhDR3PvOqLJ/scene.splinecode"></spline-viewer>
+                    <spline-viewer url="https://prod.spline.design/CcrsqZjnV8Ea7omE/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
+
+            <!-- Sun Section -->
+            <div class="scroll-spacer2">
+                <div class="sticky-scene-container">
+                    <div class="content-section">
+                        <div class="section-content">
+                            <h1>SOLARA</h1>
+                            <p>Witness the magnificent Solara, a celestial marvel that embodies the raw power and beauty of stellar formation. Its intricate surface reveals the complex processes that drive the life cycle of stars.</p>
+                            <p>From its radiant core to its dynamic photosphere, Solara represents the ultimate testament to the cosmic forces that shape our universe.</p>
+                        </div>
+                        <div class="section-viewer">
+                            <spline-viewer url="https://prod.spline.design/2Lvb-EhDR3PvOqLJ/scene.splinecode"></spline-viewer>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <h1>About Cosmic Journey</h1>
+        <p>Cosmic Journey is an immersive exploration of the most fascinating celestial bodies in our universe. Our mission is to bring the wonders of space closer to everyone, showcasing the beauty and complexity of astronomical phenomena.</p>
+        <h2>Our Mission</h2>
+        <p>We believe in making space science accessible, engaging, and inspiring. Through advanced 3D visualization and compelling narratives, we aim to spark curiosity about the cosmos and our place within it.</p>
+        <h2>Our Team</h2>
+        <p>Our team comprises astronomers, designers, and space enthusiasts dedicated to creating breathtaking representations of celestial objects and phenomena.</p>
     </div>
 
     <script>
@@ -170,6 +199,23 @@
         window.onload = function() {
             window.scrollTo(0, 0);
         }
+
+        // Page navigation function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Scroll to top of page
+            window.scrollTo(0, 0);
+        }
     </script>
 </body>
 </html>
+Last edited just now
+
+
