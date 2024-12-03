@@ -55,11 +55,17 @@
 
         /* Spacer to create scroll effect */
         .scroll-spacer {
-            height: 200vh;
+            height: 400vh;
             position: relative;
             z-index: 1;
         }
 
+        .scroll-spacer2 {
+            height: 200vh;
+            position: relative;
+            z-index: 1;
+        }
+        
         /* Divider section */
         .divider {
             height: 20vh;
@@ -86,6 +92,8 @@
 
         .section-viewer {
             width: 50%;
+            display: flex; /* Ensures child alignment */
+            align-items: center; /* Centers the spline viewer vertically */
         }
 
         /* Ensure Spline viewer fills its container */
@@ -142,7 +150,7 @@
     </div>
 
     <!-- Sun Section -->
-    <div class="scroll-spacer">
+    <div class="scroll-spacer2">
         <div class="sticky-scene-container">
             <div class="content-section">
                 <div class="section-content">
