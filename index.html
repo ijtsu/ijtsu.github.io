@@ -228,6 +228,29 @@
             window.scrollTo(0, 0);
         }
 
+        const splineViewer = document.querySelector('spline-viewer'); 
+// Make sure the splineViewer is found before accessing shadowRoot
+        if (splineViewer) {
+// Access the shadow root of the spline-viewer element
+          const shadowRoot = splineViewer.shadowRoot; // Now correctly access the shadowRoot
+          if (shadowRoot) {
+    // Find the element inside the shadow DOM (replace '#logo' with the correct selector)
+            const logo = shadowRoot.querySelector('#logo');
+            if (logo) {
+      // Hide or remove the element
+              logo.style.display = 'none'; // To hide the element
+      // logo.remove(); // To remove the element completely
+              console.log('Logo element hidden.');
+            } else {
+              console.log('Logo element not found inside the shadow DOM.');
+            }
+          } else {
+            console.log('Shadow root not found.');
+          }
+        } else {
+          console.log('spline-viewer element not found.');
+        }
+        
     </script>
 </body>
 </html>
